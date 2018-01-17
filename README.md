@@ -1,4 +1,4 @@
-# Test Feed Reader by Jasmine
+# Test Feed Reader with Jasmine
 
 ###### Project Overview
 
