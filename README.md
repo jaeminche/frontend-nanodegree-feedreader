@@ -1,4 +1,4 @@
-# Classic Arcade Game Clone
+# Test Feed Reader by Jasmine
 
 ###### Project Overview
 
