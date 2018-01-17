@@ -87,12 +87,13 @@ $(function() {
          * the use of Jasmine's beforeEach and asynchronous done() function.
          */
         beforeEach(function(done) {
-            loadFeed(0, done);
+            loadFeed(0, function() {
+                done();
+            });
         });
 
-        it('there is at least a single entry element within the feed container ', function(done) {
+        it('there is at least a single entry element within the feed container ', function() {
             expect($('.feed').children().length).toBeGreaterThan(0);
-            done();
         });
     });
 
@@ -103,15 +104,19 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        var previousFeed;
+
         beforeEach(function(done) {
-            loadFeed(1, done);
+            loadFeed(0, function() {
+                // Get the previous feed
+                previousFeed = $('.feed').html();
+                // Load a new feed
+                loadFeed(1, done);
+            });
         });
 
-        it('takes in effect', function(done) {
-            expect($());
-            done();
+        it('takes in effect by having a new content', function() {
+            expect($('.feed').html()).not.toEqual(previousFeed);
         });
      });
-
-
 }());
