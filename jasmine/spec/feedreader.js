@@ -18,8 +18,7 @@ $(function() {
          * has been defined and that it is not empty.
          */
         it('are defined', function() {
-            expect(allFeeds).toBeDefined();
-            expect(allFeeds.length).not.toBe(0);
+            expect(allFeeds).toBeTruthy();
         });
 
 
@@ -29,10 +28,9 @@ $(function() {
          */
 
          it('has URLs defined and not empty', function() {
-            allFeeds.forEach(function(feed) {
-                expect(feed.url).toBeDefined();
-                expect(feed.url.length).not.toBe(0);
-            });
+            for (const feed of allFeeds) {
+                expect(feed.url).toBeTruthy();
+            }
          });
 
 
@@ -42,10 +40,9 @@ $(function() {
          */
 
          it('has names defined and not empty', function() {
-            allFeeds.forEach(function(feed) {
-                expect(feed.name).toBeDefined();
-                expect(feed.name.length).not.toBe(0);
-            });
+            for (const feed of allFeeds) {
+                expect(feed.name).toBeTruthy();
+            }
          });
     });
 
